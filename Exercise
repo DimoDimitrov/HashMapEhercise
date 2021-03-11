@@ -1,0 +1,36 @@
+package tasks;
+
+import java.util.Scanner;
+import java.util.Hashtable;
+
+public class forthMarch2021newTry {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		Hashtable<Integer, Integer> save = new Hashtable<>();
+		int print = 0;
+
+		System.out.println("Import the length of the array: ");
+		int length = scan.nextInt();
+		int[] counter = new int[length];
+		int backup = 0;
+
+		System.out.println("Import the elements: ");
+		for (int i = 0; i < length; i++) {
+			int temp = scan.nextInt();
+			save.put(i, temp);
+		}
+
+		for (int i = 0; i < length; i++) {
+			counter[i]++;
+			for (int j = 0; j < length; j++) {
+				if (save.containsValue(j)) {
+					counter[i] = counter[i] + counter[i];
+					backup = save.get(j);
+				}
+			}
+		}
+		print = backup;
+		System.out.println("The most used element is: " + print);
+	}
+}
